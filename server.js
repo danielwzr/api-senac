@@ -153,8 +153,8 @@ app.get("/secretaria", (req, res) => {
 app.get("/certificados", (req, res) => {
     let certificados = [
         {
-            nome: "Jonathan Santos",
-            curso: "Engenharia Civil"
+            nome: "Pedro Santos",
+            curso: "TI"
         },
         {
             nome: "Marcos Duarte",
