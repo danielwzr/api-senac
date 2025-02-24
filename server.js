@@ -1,8 +1,18 @@
 const express = require('express')
+let cors = require("cors");
+
 const app = express()
 
 app.listen(7080, () => {
     console.log("Server open na porta 7080")
+})
+
+app.use(cors());
+app.use((req,res,next)=>{
+    res.setHeader('Access-Control-Allow-Origin','*');
+    res.setHeader('Access-Control-Allow-Methods','GET,POST,PUT,PATCH,DELETE');
+    res.setHeader('Access-Control-Allow-Methods','Content-Type','Authorization');
+    next(); 
 })
 
 app.get("/", (req, res) => {
