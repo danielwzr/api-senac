@@ -115,21 +115,21 @@ app.get("/professores", (req, res) => {
             curso: "Sistemas de Informação",
             email: "jorge10m@gmail.com",
             linkedin: "www.linkedin.com/in/jorge",
-            foto: ""
+            foto: "https://site.sinpro-rio.org.br/wp-content/uploads/2018/09/birger-kollmeier-910261_960_720.jpg"
         },
         {
             nome: "Marcela Campos",
             curso: "Nutrição",
             email: "marcela201@gmail.com",
             linkedin: "www.linkedin.com/in/marcela",
-            foto: ""
+            foto: "https://direcionalescolas.com.br/wp-content/uploads/2017/10/Do-professor-de-antes-ao-educador-atual.jpg"
         },
         {
             nome: "Dirceu Pereira",
             curso: "Administração",
             email: "dirceup421@gmail.com",
             linkedin: "www.linkedin.com/in/dirceu",
-            foto: ""
+            foto: "https://provafacilnaweb.com.br/wp-content/uploads/2020/10/retencao-de-alunos-entenda-o-papel-do-professor-para-evitar-a-evasao-academica-capa-2048x1367-1.jpg"
         },
     ]
     res.send(professores)
