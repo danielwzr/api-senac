@@ -166,7 +166,7 @@ app.get("/certificados", (req, res) => {
 
 app.get("/tarefas", (req, res) => {
     let tarefas = [
-            "Lavar a louça", "Arrumar a cama", "Varrer a casa", "Estudar"
+            "Lavar a louça", "Arrumar a cama", "Varrer a casa", "Estudar", "Passear com o cachorro"
         ]
     res.send(tarefas)
 })
