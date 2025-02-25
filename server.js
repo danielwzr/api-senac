@@ -168,5 +168,5 @@ app.get("/tarefas", (req, res) => {
     let tarefas = [
             "Lavar a louça", "Arrumar a cama", "Varrer a casa", "Estudar"
         ]
-
+    res.send(tarefas)
 })
