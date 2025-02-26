@@ -9,11 +9,11 @@ app.listen(7080, () => {
 })
 
 app.use(cors());
-app.use((req,res,next)=>{
-    res.setHeader('Access-Control-Allow-Origin','*');
-    res.setHeader('Access-Control-Allow-Methods','GET,POST,PUT,PATCH,DELETE');
-    res.setHeader('Access-Control-Allow-Methods','Content-Type','Authorization');
-    next(); 
+app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET,POST,PUT,PATCH,DELETE');
+    res.setHeader('Access-Control-Allow-Methods', 'Content-Type', 'Authorization');
+    next();
 })
 
 app.use(bodyParser.urlencoded())
@@ -23,7 +23,7 @@ app.get("/", (req, res) => {
     res.send("Olá. Esta é a API para receber dados do SENAC")
 })
 
-app.get("/notas", (req,res) => {
+app.get("/notas", (req, res) => {
     let notas = [
         {
             unidade: "UC01",
@@ -97,7 +97,7 @@ app.get("/horarios", (req, res) => {
                     { materia: "Programação Web", inicio: "13:30" },
                     { materia: "Codificação", inicio: "15:30" },
                     { materia: "Programação Mobile", inicio: "16:30" },
-     
+
                 ]
         },
         {
@@ -170,15 +170,21 @@ app.get("/certificados", (req, res) => {
 
 app.get("/tarefas", (req, res) => {
     let tarefas = [
-            "Lavar a louça", "Arrumar a cama", "Varrer a casa", "Estudar", "Passear com o cachorro", "Cozinhar as marmitas", "Fazer Compras", "Arrumar o quarto", "Aspirar o chao", "Lavar o banheiro"
-        ]
+        "Lavar a louça", "Arrumar a cama", "Varrer a casa", "Estudar", "Passear com o cachorro", "Cozinhar as marmitas", "Fazer Compras", "Arrumar o quarto", "Aspirar o chao", "Lavar o banheiro"
+    ]
     res.send(tarefas)
 })
 
 
 
 app.post("/chamada", (req, res) => {
-    console.log(req.body)
-    var nome = req.body.nome || ""
-    res.send("Obrigado " + nome + ". Sua presença foi confirmada!")
+    var codigo = 300
+    if (req.body.codigo == codigo) {
+        console.log(req.body)
+        var nome = req.body.nome || ""
+        res.send("Obrigado " + nome + ". Sua presença foi confirmada!")
+    }
+    else {
+        res.send("Código incorreto.")
+    }
 })
