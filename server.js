@@ -191,5 +191,5 @@ app.post("/chamada", (req, res) => {
 
 app.post("/cadastrar/produto", (req, res) => {
         console.log("Produto: " + req.body.nome + " criado. Valor: R$ " + req.body.preco + ". Categoria: " + req.body.categoria)
-        res.send("Produto " + nome + " cadastrado com sucesso!")
+        res.send("Produto " + req.body.nome + " cadastrado com sucesso!")
 })
