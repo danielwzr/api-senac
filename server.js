@@ -180,7 +180,7 @@ app.get("/tarefas", (req, res) => {
 app.post("/chamada", (req, res) => {
     var codigo = 300
     if (req.body.codigo == codigo) {
-        console.log(req.body)
+        console.log("Aluno: " + req.body.nome + " presente.")
         var nome = req.body.nome || ""
         res.send("Obrigado " + nome + ". Sua presença foi confirmada!")
     }
