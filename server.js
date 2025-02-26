@@ -1,9 +1,13 @@
 const express = require('express')
 const app = express()
+var bodyParser = require('body-parser')
 
 app.listen(7080, () => {
     console.log("Server open na porta 7080")
 })
+
+app.use(bodyParser.urlencoded())
+app.use(bodyParser.json())
 
 app.get("/", (req, res) => {
     res.send("Olá. Esta é a API para receber dados do SENAC")
@@ -152,4 +156,11 @@ app.get("/certificados", (req, res) => {
         }
     ]
     res.send(certificados)
+})
+
+
+app.post("/chamada", (req, res) => {
+    console.log(req.body)
+    var nome = req.body.nome || ""
+    res.send("Obrigado " + nome + ". Sua presença foi confirmada!")
 })
