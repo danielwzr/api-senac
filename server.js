@@ -175,6 +175,9 @@ app.get("/tarefas", (req, res) => {
     res.send(tarefas)
 })
 
+app.get("/chamada", (req,res)=>{
+    res.send("Código da chamada: 559")
+})
 
 
 app.post("/chamada", (req, res) => {
@@ -190,14 +193,15 @@ app.post("/chamada", (req, res) => {
 })
 
 app.post("/cadastrar/produto", (req, res) => {
-    console.log(req.body)
         var precoFinal
         if (req.body.usado == "on"){
            precoFinal = req.body.preco * 0.9
+            console.log("Produto: " + req.body.nome + " criado. Valor: R$ " + precoFinal + ". Categoria: " + req.body.categoria + ". Por ser usado, desconto de 10%")
         } 
         else{
             precoFinal = req.body.preco
+            console.log("Produto: " + req.body.nome + " criado. Valor: R$ " + precoFinal + ". Categoria: " + req.body.categoria)
         }
-        console.log("Produto: " + req.body.nome + " criado. Valor: R$ " + precoFinal + ". Categoria: " + req.body.categoria)
+        
         res.send("Produto " + req.body.nome + " cadastrado com sucesso!")
 })
