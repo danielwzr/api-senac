@@ -190,6 +190,13 @@ app.post("/chamada", (req, res) => {
 })
 
 app.post("/cadastrar/produto", (req, res) => {
-        console.log("Produto: " + req.body.nome + " criado. Valor: R$ " + req.body.preco + ". Categoria: " + req.body.categoria)
+        var precoFinal
+        if (req.body.usado == true){
+           precoFinal = req.body.preco * 0.9
+        } 
+        else{
+            precoFinal = req.body.preco
+        }
+        console.log("Produto: " + req.body.nome + " criado. Valor: R$ " + precoFinal + ". Categoria: " + req.body.categoria)
         res.send("Produto " + req.body.nome + " cadastrado com sucesso!")
 })
