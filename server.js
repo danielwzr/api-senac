@@ -190,6 +190,7 @@ app.post("/chamada", (req, res) => {
 })
 
 app.post("/cadastrar/produto", (req, res) => {
+    console.log(req.body.usado)
         var precoFinal
         if (req.body.usado == true){
            precoFinal = req.body.preco * 0.9
