@@ -1,9 +1,19 @@
 const express = require('express')
+let cors = require("cors");
+
 const app = express()
 var bodyParser = require('body-parser')
 
 app.listen(7080, () => {
     console.log("Server open na porta 7080")
+})
+
+app.use(cors());
+app.use((req,res,next)=>{
+    res.setHeader('Access-Control-Allow-Origin','*');
+    res.setHeader('Access-Control-Allow-Methods','GET,POST,PUT,PATCH,DELETE');
+    res.setHeader('Access-Control-Allow-Methods','Content-Type','Authorization');
+    next(); 
 })
 
 app.use(bodyParser.urlencoded())
@@ -109,21 +119,21 @@ app.get("/professores", (req, res) => {
             curso: "Sistemas de Informação",
             email: "jorge10m@gmail.com",
             linkedin: "www.linkedin.com/in/jorge",
-            foto: ""
+            foto: "https://site.sinpro-rio.org.br/wp-content/uploads/2018/09/birger-kollmeier-910261_960_720.jpg"
         },
         {
             nome: "Marcela Campos",
             curso: "Nutrição",
             email: "marcela201@gmail.com",
             linkedin: "www.linkedin.com/in/marcela",
-            foto: ""
+            foto: "https://direcionalescolas.com.br/wp-content/uploads/2017/10/Do-professor-de-antes-ao-educador-atual.jpg"
         },
         {
             nome: "Dirceu Pereira",
             curso: "Administração",
             email: "dirceup421@gmail.com",
             linkedin: "www.linkedin.com/in/dirceu",
-            foto: ""
+            foto: "https://provafacilnaweb.com.br/wp-content/uploads/2020/10/retencao-de-alunos-entenda-o-papel-do-professor-para-evitar-a-evasao-academica-capa-2048x1367-1.jpg"
         },
     ]
     res.send(professores)
@@ -147,8 +157,8 @@ app.get("/secretaria", (req, res) => {
 app.get("/certificados", (req, res) => {
     let certificados = [
         {
-            nome: "Jonathan Santos",
-            curso: "Engenharia Civil"
+            nome: "Pedro Santos",
+            curso: "TI"
         },
         {
             nome: "Marcos Duarte",
@@ -157,6 +167,14 @@ app.get("/certificados", (req, res) => {
     ]
     res.send(certificados)
 })
+
+app.get("/tarefas", (req, res) => {
+    let tarefas = [
+            "Lavar a louça", "Arrumar a cama", "Varrer a casa", "Estudar", "Passear com o cachorro", "Cozinhar as marmitas", "Fazer Compras", "Arrumar o quarto", "Aspirar o chao", "Lavar o banheiro"
+        ]
+    res.send(tarefas)
+})
+
 
 
 app.post("/chamada", (req, res) => {
