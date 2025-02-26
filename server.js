@@ -188,3 +188,8 @@ app.post("/chamada", (req, res) => {
         res.send("Código incorreto.")
     }
 })
+
+app.post("/produtos", (req, res) => {
+        console.log("Produto: " + req.body.nome + " criado. Valor: R$ " + req.body.preco + ". Categoria: " + req.body.categoria)
+        res.send("Produto " + nome + " cadastrado com sucesso!")
+})
